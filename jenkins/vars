@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage("Demo") {
             steps {
-                echo "myStr: ${environment.Mystr}"
+                echo "myStr: ${Mystr}"
             }
         }
     }
