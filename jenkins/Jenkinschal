@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage("Demo") {
             steps {
-                echo "name is set to: ${params.deployEnv}"
+                echo "name is set to: ${params.deployName}"
                 echo "az is set to: ${params.deployAZ}"
                 echo "confirm deploy is set to ${params.deployConfirm}"
             }
