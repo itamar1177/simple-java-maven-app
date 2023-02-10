@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    environment {
+        def myStr = "hello"
+        def myNum = 17
+        def myBool = true
+    }
+
+    stages {
+        stage("Demo") {
+            steps {
+                echo "myStr: ${environment.Mystr}"
+            }
+        }
+    }
+}
