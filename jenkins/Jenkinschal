@@ -2,21 +2,27 @@ pipeline {
     agent any
 
     parameters {
-        string(description: "which env to deploy in?", 
-        name: "deployName")
-        choice(choices: ["az1", "az2"], 
-            description: "which az", 
-            name: "deployAZ")
-        booleanParam(description: "confirm deploy", 
-        name: "deployConfirm")
+        string(description: "name of dep", name: "deployName")
+        choice(choices: ["TEST", "DEV", "QA", "PRE-PROD", "PROD"], 
+            description: "which env to deploy in?", 
+            name: "deployEnv")
+        booleanParam(description: "confirm", name: "depConfirmation")
     }
 
     stages {
         stage("Demo") {
             steps {
-                echo "name is set to: ${params.deployName}"
-                echo "az is set to: ${params.deployAZ}"
-                echo "confirm deploy is set to ${params.deployConfirm}"
+                script {
+                    if (params.depConfirmation == true)
+                    {
+                        echo "str is ${params.deployName}"
+                        echo "env is ${params.deployEnv}"
+                    }
+                    else
+                    {
+                        echo 'not confirmed'
+                    }
+                }
             }
         }
     }
