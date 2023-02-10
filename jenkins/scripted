@@ -1,4 +1,4 @@
-node('my-label') {
+node {
     stage('Build') {
         echo 'Building...'
     }
