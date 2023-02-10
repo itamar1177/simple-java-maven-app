@@ -14,17 +14,9 @@ pipeline {
     stages {
         stage("Demo") {
             steps {
-                if ${params.deployConfirm == true}
-                {
-                    echo "name is set to: ${params.deployEnv}"
-                    echo "az is set to: ${params.deployAZ}"
-                    echo "confirm deploy is set to ${params.deployConfirm}"
-                }
-                else
-                {
-                    echo "deployment was not confirmed"
-                }
-                
+                echo "name is set to: ${params.deployEnv}"
+                echo "az is set to: ${params.deployAZ}"
+                echo "confirm deploy is set to ${params.deployConfirm}"
             }
         }
     }
